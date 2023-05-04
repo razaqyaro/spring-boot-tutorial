@@ -10,30 +10,36 @@ public class Student
         this.age = age;
     }
 
-    public Student() {
+    public Student(){
+
     }
 
     private String firstname;
     private String lastname;
     private LocalDate dateOfBirth;
 
-    public String getFirstname() {
+    public String getFirstname()
+    {
         return firstname;
     }
 
-    public String getLastname() {
+    public String getLastname()
+    {
         return lastname;
     }
 
-    public LocalDate getDate() {
+    public LocalDate getDate()
+    {
         return dateOfBirth;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public int getAge() {
+    public int getAge()
+    {
         return age;
     }
 

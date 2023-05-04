@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/v1/students")
+// Controller annotation indicates that the class is a controller component
+@RestController // controller annotation - exposing a resource
+@RequestMapping("/api/v1/students")  // the parameter is the api resource endpoint
 public class StudentController
 {
 
@@ -19,7 +20,7 @@ public class StudentController
 
 
     private StudentService service;
-    @GetMapping
+    @GetMapping  // Indicate the GET resource. It takes a String parameter which indicates the url
     public List<Student> findAllStudents()
     {
         return service.findAllStudents();
