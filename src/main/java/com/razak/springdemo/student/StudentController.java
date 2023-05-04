@@ -1,9 +1,8 @@
 package com.razak.springdemo.student;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 // Controller annotation indicates that the class is a controller component
@@ -17,9 +16,31 @@ public class StudentController
     {
         this.service = serviceIn;
     }
+    @PostMapping
+    public Student save(@RequestBody Student student)
+    {
+        return service.save(student);
+    }
+
+    @GetMapping("/{email}")
+    public Student findByEmail(@PathVariable("email") String email)
+    {
+        return service.findByEmail(email);
+    }
     @GetMapping  // Indicate the GET resource. It takes a String parameter which indicates the url
     public List<Student> findAllStudents()
     {
         return service.findAllStudents();
+    }
+    @PutMapping
+    public Student updateStudent(@RequestBody Student student)
+    {
+        return service.update(student);
+    }
+
+    @DeleteMapping("/{email")
+    public void delete(@PathVariable("email") String email)
+    {
+        service.delete(email);
     }
 }

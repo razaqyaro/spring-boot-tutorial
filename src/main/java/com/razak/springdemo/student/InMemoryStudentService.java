@@ -2,78 +2,44 @@ package com.razak.springdemo.student;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class InMemoryStudentService implements StudentService
 {
+    private final InMemoryStudentDao dao;
+
+    public InMemoryStudentService(InMemoryStudentDao daoIn)
+    {
+        this.dao = daoIn;
+    }
 
     @Override
-    public Student save(Student s) {
-        return null;
+    public Student save(Student s)
+    {
+        return dao.save(s);
     }
 
     @Override
     public List<Student> findAllStudents() {
-        return List.of(
-                new Student(
-                        "Jay",
-                        "Khan",
-                        LocalDate.now(),
-                        "razaqyaro@gmail.com",
-                        34
-                ),
-                new Student(
-                        "Rahman",
-                        "Khan",
-                        LocalDate.now(),
-                        "razaqyaro@gmail.com",
-                        26
-                ),
-                new Student(
-                        "Rahman",
-                        "Khan",
-                        LocalDate.now(),
-                        "razaqyaro@gmail.com",
-                        34
-                ),
-                new Student(
-                        "Rahman",
-                        "Khan",
-                        LocalDate.now(),
-                        "razaqyaro@gmail.com",
-                        24
-                ),
-                new Student(
-                        "Saed",
-                        "Barn",
-                        LocalDate.now(),
-                        "reyyo@gmail.com",
-                        34
-                ),
-                new Student(
-                        "Kwamena",
-                        "Attoh",
-                        LocalDate.now(),
-                        "aro@gmail.com",
-                        56
-                )
-        );
+        return dao.findAllStudents();
     }
 
     @Override
-    public Student findByEmail(String email) {
-        return null;
+    public Student findByEmail(String email)
+    {
+        return dao.findByEmail(email);
     }
 
     @Override
-    public Student update(Student s) {
-        return null;
+    public Student update(Student s)
+    {
+        return dao.update(s);
     }
 
     @Override
-    public void delete(String email) {
+    public void delete(String email)
+    {
 
     }
 }
