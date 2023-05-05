@@ -21,7 +21,8 @@ public class InMemoryStudentService implements StudentService
     }
 
     @Override
-    public List<Student> findAllStudents() {
+    public List<Student> findAllStudents()
+    {
         return dao.findAllStudents();
     }
 

@@ -11,7 +11,8 @@ public class InMemoryStudentDao
 {
     private final List<Student> STUDENTS = new ArrayList<>();
 
-    public List<Student> findAllStudents() {
+    public List<Student> findAllStudents()
+    {
         return STUDENTS;
     }
     public Student save(Student s)

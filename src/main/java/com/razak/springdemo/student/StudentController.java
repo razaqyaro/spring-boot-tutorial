@@ -38,7 +38,7 @@ public class StudentController
         return service.update(student);
     }
 
-    @DeleteMapping("/{email")
+    @DeleteMapping("/{email}")
     public void delete(@PathVariable("email") String email)
     {
         service.delete(email);
