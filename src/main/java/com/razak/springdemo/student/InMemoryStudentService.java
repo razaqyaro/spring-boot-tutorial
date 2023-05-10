@@ -41,6 +41,6 @@ public class InMemoryStudentService implements StudentService
     @Override
     public void delete(String email)
     {
-
+        dao.delete(email);
     }
 }
