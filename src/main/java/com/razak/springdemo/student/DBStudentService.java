@@ -1,46 +1,48 @@
 package com.razak.springdemo.student;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service()
-public class InMemoryStudentService implements StudentService
+@Primary
+public class DBStudentService implements StudentService
 {
-    private final InMemoryStudentDao dao;
+    private final StudentRepository repository;
 
-    public InMemoryStudentService(InMemoryStudentDao daoIn)
+    public DBStudentService(StudentRepository repository)
     {
-        this.dao = daoIn;
+        this.repository = repository;
     }
 
     @Override
     public Student save(Student s)
     {
-        return dao.save(s);
+        return repository.save(s);
     }
 
     @Override
     public List<Student> findAllStudents()
     {
-        return dao.findAllStudents();
+        return repository.findAll();
     }
 
     @Override
     public Student findByEmail(String email)
     {
-        return dao.findByEmail(email);
+        return repository.findByEmail(email);
     }
 
     @Override
     public Student update(Student s)
     {
-        return dao.update(s);
+        return repository.save(s);
     }
 
     @Override
     public void delete(String email)
     {
-        dao.delete(email);
+        repository.deleteByEmail(email);
     }
 }
